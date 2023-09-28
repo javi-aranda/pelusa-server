@@ -8,7 +8,6 @@ from sqlalchemy.sql.functions import func
 from app.db import Base
 
 
-
 class User(SQLAlchemyBaseUserTableUUID, Base):
     __tablename__ = "users"
 

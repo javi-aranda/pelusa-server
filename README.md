@@ -22,7 +22,7 @@ You can get a more detailed reference of the API by visiting [http://localhost:8
 Those results are stored in a PostgreSQL database.
 
 ## Dataset
-The dataset used for training the model is handmade and available under the path `backend/app/ml/data/phishing_dataset.csv` 
+The dataset used for training the model is handmade and available under the path `backend/app/ml/data/phishing_dataset.csv`
 
 ## Training
 The model is trained using a Random Forest Classifier with an accuracy of 94% and is available as a Jupyter Notebook under the path `backend/app/ml/train.ipynb`.
@@ -30,4 +30,3 @@ The model is trained using a Random Forest Classifier with an accuracy of 94% an
 ## Credits
 
 This project was made keeping in mind [FastAPI Starter](https://github.com/gaganpreet/fastapi-starter) as a reference, but bundling the frontend in a different repository, which is available in [Pelusa React](https://github.com/javi-aranda/pelusa-react).
-

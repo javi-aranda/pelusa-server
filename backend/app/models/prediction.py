@@ -1,13 +1,13 @@
 import json
-import numpy as np
-
 from datetime import datetime
 
+import numpy as np
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql.functions import func
 from sqlalchemy.sql.sqltypes import DateTime
 
 from app.db import Base
+
 
 class Prediction(Base):
     __tablename__ = "predictions"

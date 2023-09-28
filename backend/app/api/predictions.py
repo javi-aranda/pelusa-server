@@ -1,13 +1,14 @@
 from typing import Any
-from app.deps.predictions import analyze_url
 
 from fastapi import APIRouter
 
 from app.deps.db import CurrentAsyncSession
+from app.deps.predictions import analyze_url
 from app.models.prediction import Prediction
 from app.schemas.prediction import PredictionCreate, PredictionResponse
 
 router = APIRouter(prefix="/analysis")
+
 
 @router.post("", response_model=PredictionResponse, status_code=201)
 async def create_prediction(

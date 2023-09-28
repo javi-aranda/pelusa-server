@@ -1,6 +1,5 @@
 import asyncio
 import uuid
-from typing import Callable
 
 import pytest
 from httpx import AsyncClient

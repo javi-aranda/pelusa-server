@@ -1,7 +1,7 @@
-import joblib
 import sys
 from typing import Any, Dict, List, Optional
 
+import joblib
 from pydantic import BaseSettings, HttpUrl, PostgresDsn, validator
 from pydantic.networks import AnyHttpUrl
 
