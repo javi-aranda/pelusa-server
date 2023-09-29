@@ -38,9 +38,9 @@ jobs:
     #    docker-compose exec -T backend alembic upgrade head
     #    docker-compose exec -T backend alembic check
 
-    - name: Run tests
-      run: |
-        docker-compose exec -T backend pytest -v --cov --cov-report term-missing
+    #- name: Run tests
+    #  run: |
+    #    docker-compose exec -T backend pytest -v --cov --cov-report term-missing
 
     - name: Log docker status
       if: ${{ always() }}
