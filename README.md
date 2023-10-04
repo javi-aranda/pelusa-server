@@ -25,7 +25,8 @@ You can get a more detailed reference of the API by visiting [http://localhost:8
 But mainly it consists of an endpoint `api/v1/analysis` that accepts JSON body with `{"input": "<URL_TO_CHECK>"}`
 and returns the legitimacy of the website (1 means potentially bad, 0 means potentially safe).
 
-Those results are stored in a PostgreSQL database, which could be useful to train the model in a future.
+Those results are stored in a PostgreSQL database, which could be useful to train the model in a future
+or as persistence mechanism in case an URL is submitted multiple times in a short period of time.
 
 ## Dataset
 The dataset used for training the model is handmade, it consists on 30000 URLs, 50% legitimate and 50% malicious.
