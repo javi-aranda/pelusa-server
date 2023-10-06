@@ -14,4 +14,4 @@ async def test_prediction_model(db: AsyncSession):
     db.add(prediction)
     await db.commit()
     assert prediction.id
-    assert prediction.get_features() == np.array([1, 2, 3])
+    assert np.array_equal(prediction.get_features(), np.array([1, 2, 3]))
