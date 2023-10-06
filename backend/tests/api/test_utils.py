@@ -3,7 +3,9 @@ from httpx import AsyncClient
 from app.core.config import settings
 
 
-async def test_hello_world(client: AsyncClient) -> None:
-    resp = await client.get(f"{settings.API_PATH}/hello-world")
+async def test_healthy(client: AsyncClient) -> None:
+    resp = await client.get(f"{settings.API_PATH}/healthy")
     data = resp.json()
-    assert data["msg"] == "Hello world!"
+    assert resp.status_code == 200
+    assert data["msg"] == "healthy"
+    assert data["ct"] is not None
