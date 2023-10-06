@@ -33,14 +33,14 @@ jobs:
         docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
         docker-compose exec -T postgres createdb -U postgres apptest
 
-    #- name: Check that models are in sync with alembic migrations
-    #  run: |
-    #    docker-compose exec -T backend alembic upgrade head
-    #    docker-compose exec -T backend alembic check
+    - name: Check that models are in sync with alembic migrations
+      run: |
+        docker-compose exec -T backend alembic upgrade head
+        docker-compose exec -T backend alembic check
 
-    #- name: Run tests
-    #  run: |
-    #    docker-compose exec -T backend pytest -v --cov --cov-report term-missing
+    - name: Run tests
+      run: |
+        docker-compose exec -T backend pytest -v --cov --cov-report term-missing
 
     - name: Log docker status
       if: ${{ always() }}
