@@ -9,6 +9,7 @@ from app.core.config import settings
 from app.db import Base
 from app.deps.users import get_user_manager
 from app.factory import create_app
+from app.models.prediction import Prediction
 from app.models.user import User
 from tests.utils import generate_random_string
 
@@ -72,6 +73,17 @@ def create_user(db: AsyncSession, default_password: str):
         db.add(user)
         await db.commit()
         return user
+
+    return inner
+
+
+@pytest.fixture(scope="function")
+def create_prediction(db: AsyncSession):
+    async def inner(input: str, prediction: int):
+        prediction = Prediction(input=input, prediction=prediction)
+        db.add(prediction)
+        await db.commit()
+        return prediction
 
     return inner
 
