@@ -1,6 +1,7 @@
 from typing import Any
 
 from fastapi import APIRouter
+from sqlalchemy.future import select
 
 from app.deps.db import CurrentAsyncSession
 from app.deps.predictions import analyze_url
@@ -32,11 +33,12 @@ async def create_prediction(
     session: CurrentAsyncSession,
 ) -> Any:
     existing_prediction = await session.execute(
-        session.query(Prediction).filter_by(input=prediction_in.input).first()
+        select(Prediction).filter_by(input=prediction_in.input)
     )
+    db_prediction = existing_prediction.scalars().first()
 
-    if existing_prediction:
-        return PredictionResponse(prediction=existing_prediction.prediction)
+    if db_prediction:
+        return PredictionResponse(prediction=db_prediction.prediction)
 
     return await create_prediction_helper(prediction_in, session)
 

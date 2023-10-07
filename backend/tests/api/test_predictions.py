@@ -1,8 +1,8 @@
+from typing import Callable
+
 from httpx import AsyncClient
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
-from app.models.prediction import Prediction
 
 
 async def test_analysis(client: AsyncClient) -> None:
@@ -14,37 +14,27 @@ async def test_analysis(client: AsyncClient) -> None:
     assert data["prediction"] == 0
 
 
-async def test_analysis_stored_in_db(client: AsyncClient, db: AsyncSession) -> None:
-    prediction = Prediction(
-        id=5,
-        input="https://example.com",
-        features="[1, 2, 3]",
-        prediction=True,
-    )
-    db.add(prediction)
-    await db.commit()
+async def test_analysis_stored_in_db(
+    client: AsyncClient, create_prediction: Callable
+) -> None:
+    prediction = await create_prediction("https://example.org", 1)
 
     resp = await client.post(
-        f"{settings.API_PATH}/analysis", json={"input": "https://example.com"}
+        f"{settings.API_PATH}/analysis", json={"input": "https://example.org"}
     )
     data = resp.json()
+    prediction = data["prediction"]
     assert resp.status_code == 201
-    assert data["prediction"] == 1
+    assert prediction == 1
 
 
-async def test_analysis_force(client: AsyncClient, db: AsyncSession) -> None:
-    prediction = Prediction(
-        id=5,
-        input="https://example.com",
-        features="[1, 2, 3]",
-        prediction=True,
-    )
-    db.add(prediction)
-    await db.commit()
+async def test_analysis_force(client: AsyncClient, create_prediction: Callable) -> None:
+    prediction = await create_prediction("https://example.net", 1)
 
     resp = await client.post(
-        f"{settings.API_PATH}/analysis/force", json={"input": "https://example.com"}
+        f"{settings.API_PATH}/analysis/force", json={"input": "https://example.net"}
     )
     data = resp.json()
+    prediction = data["prediction"]
     assert resp.status_code == 201
-    assert data["prediction"] == 0
+    assert prediction == 0
