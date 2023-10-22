@@ -1,6 +1,7 @@
 # Pelusa Server
 
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/javi-aranda/pelusa-server/master)
+[![Build and test](https://github.com/javi-aranda/pelusa-server/actions/workflows/test.yaml/badge.svg)](https://github.com/javi-aranda/pelusa-server/actions/workflows/test.yaml)
 
 
 ## Description
