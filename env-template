@@ -4,3 +4,5 @@ DATABASE_URL=postgresql://postgres:CHANGE_ME@postgres/app
 TEST_DATABASE_URL=postgresql://postgres:CHANGE_ME@postgres/apptest
 SECRET_KEY=CHANGE_ME
 BACKEND_CORS_ORIGINS='["http://localhost:3000","http://127.0.0.1:3000"]'
+PGADMIN_DEFAULT_EMAIL=user@example.com
+PGADMIN_DEFAULT_PASSWORD=CHANGE_ME
