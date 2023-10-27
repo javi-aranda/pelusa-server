@@ -29,6 +29,10 @@ and returns the legitimacy of the website (1 means potentially bad, 0 means pote
 Those results are stored in a PostgreSQL database, which could be useful to train the model in a future
 or as persistence mechanism in case an URL is submitted multiple times in a short period of time.
 
+### Exploring the database
+There is a [pgAdmin](https://www.pgadmin.org/) instance running on [http://localhost:5050](http://localhost:5050) with credentials
+defined in `.env` file. After connecting to the PostgreSQL server, you can explore the database and run any query you want.
+
 ## Dataset
 The dataset used for training the model is handmade, it consists on 30000 URLs, 50% legitimate and 50% malicious.
 
