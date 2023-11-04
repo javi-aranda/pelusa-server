@@ -17,6 +17,8 @@ class Settings(BaseSettings):
 
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
 
+    MAX_BULK_PREDICTIONS: int = 50
+
     # The following variables need to be defined in environment
 
     TEST_DATABASE_URL: Optional[PostgresDsn]
