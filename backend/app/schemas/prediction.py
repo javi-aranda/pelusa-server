@@ -19,3 +19,11 @@ class PredictionResponse(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class BulkPredictionResponse(BaseModel):
+    input: str
+    prediction: bool
+
+    class Config:
+        orm_mode = True
