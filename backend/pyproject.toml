@@ -21,7 +21,7 @@ tldextract = "^5.0.1"
 idna = "^3.4"
 matplotlib = "^3.8.1"
 scikit-learn = "^1.3.2"
-xgboost = "^2.0.1"
+xgboost = "^2.0.2"
 seaborn = "^0.13.0"
 
 
