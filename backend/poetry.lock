@@ -2366,13 +2366,13 @@ files = [
 
 [[package]]
 name = "tldextract"
-version = "5.0.1"
+version = "5.1.2"
 description = "Accurately separates a URL's subdomain, domain, and public suffix, using the Public Suffix List (PSL). By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "tldextract-5.0.1-py3-none-any.whl", hash = "sha256:8322fa2b73d9572c6bde31e96f66b694abb86d85b32ed6082593da806a6d33b4"},
-    {file = "tldextract-5.0.1.tar.gz", hash = "sha256:ac1c5daa02616e9c2608f5fb6dd93049db03d0cf46c7f6fad46e2850a984f019"},
+    {file = "tldextract-5.1.2-py3-none-any.whl", hash = "sha256:4dfc4c277b6b97fa053899fcdb892d2dc27295851ab5fac4e07797b6a21b2e46"},
+    {file = "tldextract-5.1.2.tar.gz", hash = "sha256:c9e17f756f05afb5abac04fe8f766e7e70f9fe387adb1859f0f52408ee060200"},
 ]
 
 [package.dependencies]
@@ -2380,6 +2380,10 @@ filelock = ">=3.0.8"
 idna = "*"
 requests = ">=2.1.0"
 requests-file = ">=1.4"
+
+[package.extras]
+release = ["build", "twine"]
+testing = ["black", "mypy", "pytest", "pytest-gitignore", "pytest-mock", "responses", "ruff", "syrupy", "tox", "types-filelock", "types-requests"]
 
 [[package]]
 name = "tqdm"
@@ -2513,4 +2517,4 @@ scikit-learn = ["scikit-learn"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8c992cc8ebbbeb941d643d23be1da84d5d796c00c9a981597430ee9f008ab1e8"
+content-hash = "f08384336b72b33100102770cebbbcf78f703aa7a5caa558080a7402d97d3d35"
